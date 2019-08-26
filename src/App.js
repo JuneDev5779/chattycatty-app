@@ -1,26 +1,40 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as firebase from 'firebase';
+import RoomList from './components/RoomList.js';
 
-function App() {
+var firebaseConfig = {
+  apiKey: "AIzaSyA4RPiptkS8eBTLonv7B2ZLPkAH0dai6b4",
+  authDomain: "chattycatty-app.firebaseapp.com",
+  databaseURL: "https://chattycatty-app.firebaseio.com",
+  projectId: "chattycatty-app",
+  storageBucket: "",
+  messagingSenderId: "6976054198",
+  appId: "1:6976054198:web:93737d7caaaf917a"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rooms:[]
+    };
+  }
+}
+
+render() {
+  
+  const roomList = this.state.rooms.map();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+          <ul>{roomList}</ul>
+      </div>
+      )
+  }
 }
 
 export default App;
