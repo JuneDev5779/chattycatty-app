@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
-import RoomList from './components/RoomList.js';
+import RoomList from './components/RoomList';
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyA4RPiptkS8eBTLonv7B2ZLPkAH0dai6b4",
@@ -17,24 +17,11 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rooms:[]
-    };
+  render() {
+    return (
+      <div><RoomList firebase={firebase} /></div>
+    );
   }
+
 }
-
-render() {
-  
-  const roomList = this.state.rooms.map();
-
-  return (
-      <div>
-          <ul>{roomList}</ul>
-      </div>
-      )
-  }
-}
-
 export default App;
